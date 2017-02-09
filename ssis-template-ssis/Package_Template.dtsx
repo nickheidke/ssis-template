@@ -12,8 +12,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package_Template"
   DTS:PackageType="5"
-  DTS:VersionBuild="635"
-  DTS:VersionGUID="{37293F2A-864B-46F2-AC8E-856665B435D8}">
+  DTS:VersionBuild="638"
+  DTS:VersionGUID="{4A2927FB-3330-4E75-8425-B2B0BBB601AE}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -139,7 +139,7 @@
       DTS:Namespace="User"
       DTS:ObjectName="PackageVersion">
       <DTS:VariableValue
-        DTS:DataType="8">1.0.635</DTS:VariableValue>
+        DTS:DataType="8">1.0.638</DTS:VariableValue>
     </DTS:Variable>
     <DTS:Variable
       DTS:CreationName=""
@@ -209,7 +209,933 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Populate Tables">
       <DTS:Variables />
-      <DTS:Executables />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Populate Tables\Data Flow Task"
+          DTS:CreationName="Microsoft.Pipeline"
+          DTS:Description="Data Flow Task"
+          DTS:DTSID="{71272507-C3FC-4627-BC7E-DF99B518F07A}"
+          DTS:ExecutableType="Microsoft.Pipeline"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Data Flow Task"
+          DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <pipeline
+              version="1">
+              <components>
+                <component
+                  refId="Package\Populate Tables\Data Flow Task\Inserted-Updated Records &lt;TableName&gt;"
+                  componentClassID="Microsoft.ManagedComponentHost"
+                  contactInfo="Executes a custom script.;Microsoft Corporation; Microsoft SqlServer v10; © 2007 Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="Executes a custom script."
+                  localeId="1033"
+                  name="Inserted-Updated Records &lt;TableName&gt;"
+                  version="10">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Stores the source code of the component"
+                      isArray="true"
+                      name="SourceCode"
+                      state="cdata">
+                      <arrayElements
+                        arrayElementCount="30">
+                        <arrayElement
+                          dataType="System.String"><![CDATA[My Project\AssemblyInfo.vb]]></arrayElement>
+                        <arrayElement
+                          dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                        <arrayElement
+                          dataType="System.String"><![CDATA[Imports System
+Imports System.Reflection
+Imports System.Runtime.InteropServices
+
+' General Information about an assembly is controlled through the following 
+' set of attributes. Change these attribute values to modify the information
+' associated with an assembly.
+
+' Review the values of the assembly attributes
+
+<Assembly: AssemblyTitle("SC_58393d7de35e4a53a4c2d6a8a3afc8e1.vbproj")> 
+<Assembly: AssemblyDescription("")> 
+<Assembly: AssemblyCompany("Microsoft")> 
+<Assembly: AssemblyProduct("SC_58393d7de35e4a53a4c2d6a8a3afc8e1.vbproj")> 
+<Assembly: AssemblyCopyright("Copyright @ Microsoft 2015")> 
+<Assembly: AssemblyTrademark("")> 
+<Assembly: CLSCompliant(True)> 
+
+<Assembly: ComVisible(False)> 
+
+'The following GUID is for the ID of the typelib if this project is exposed to COM
+<Assembly: Guid("8914ebaf-bdad-4eda-bd52-ff04f0d37039")> 
+
+' Version information for an assembly consists of the following four values:
+'
+'      Major Version
+'      Minor Version 
+'      Build Number
+'      Revision
+'
+' You can specify all the values or you can default the Build and Revision Numbers 
+' by using the '*' as shown below:
+' <Assembly: AssemblyVersion("1.0.*")>
+
+<Assembly: AssemblyVersion("1.0.0.0")> 
+<Assembly: AssemblyFileVersion("1.0.0.0")> 
+]]></arrayElement>
+                        <arrayElement
+                          dataType="System.String"><![CDATA[ComponentWrapper.vb]]></arrayElement>
+                        <arrayElement
+                          dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                        <arrayElement
+                          dataType="System.String"><![CDATA[' THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT!
+' Microsoft SQL Server Integration Services component wrapper
+' This module defines the base class for your component
+' THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT!
+
+Imports System
+Imports System.Data
+Imports Microsoft.SqlServer.Dts.Pipeline
+Imports Microsoft.SqlServer.Dts.Pipeline.Wrapper
+Imports Microsoft.SqlServer.Dts.Runtime.Wrapper
+
+<CLSCompliant(False)> _
+Public Class UserComponent
+    Inherits ScriptComponent
+
+    Public Connections As New Connections(Me)
+    Public Variables As New Variables(Me)
+
+    Public Overrides Sub ProcessInput(ByVal InputID As Integer, ByVal InputName As String, ByVal Buffer As PipelineBuffer, ByVal OutputMap As OutputNameMap)
+
+        If InputName.Equals("Input 0", StringComparison.Ordinal) Then
+            Input0_ProcessInput(New Input0Buffer(Buffer, GetColumnIndexes(InputID), OutputMap))
+        End If
+
+    End Sub
+
+    Public Overridable Sub Input0_ProcessInput(ByVal Buffer As Input0Buffer)
+
+        While Buffer.NextRow()
+            Input0_ProcessInputRow(Buffer)
+        End While
+
+    End Sub
+
+    Public Overridable Sub Input0_ProcessInputRow(ByVal Row As Input0Buffer)
+
+    End Sub
+
+End Class
+
+<CLSCompliant(False)> _
+Public Class Connections
+
+    Dim ParentComponent As ScriptComponent
+
+    <CLSCompliant(False)> _
+    Public Sub New(ByVal Component As ScriptComponent)
+        ParentComponent = Component
+    End Sub
+
+    Public ReadOnly Property SSISManagement() As IDTSConnectionManager100
+        Get
+            Return ParentComponent.ComponentMetaData.RuntimeConnectionCollection.GetRuntimeConnectionByName("SSIS_Management").ConnectionManager
+        End Get
+    End Property
+
+End Class
+
+<CLSCompliant(False)> _
+Public Class Variables
+
+    Dim ParentComponent As ScriptComponent
+
+    <CLSCompliant(False)> _
+    Public Sub New(ByVal Component As ScriptComponent)
+        ParentComponent = Component
+    End Sub
+
+    Public ReadOnly Property [ExecutionInstanceGUID]() As String
+        Get
+            Return CType(ParentComponent.ReadOnlyVariables("ExecutionInstanceGUID").GetValueWithContext(ScriptComponent.EvaluatorContext), String)
+        End Get
+    End Property
+
+    Public ReadOnly Property [PackageID]() As String
+        Get
+            Return CType(ParentComponent.ReadOnlyVariables("PackageID").GetValueWithContext(ScriptComponent.EvaluatorContext), String)
+        End Get
+    End Property
+
+    Public ReadOnly Property [PackageLogID]() As Int32
+        Get
+            Return CType(ParentComponent.ReadOnlyVariables("PackageLogID").GetValueWithContext(ScriptComponent.EvaluatorContext), Int32)
+        End Get
+    End Property
+
+    Public ReadOnly Property [PackageName]() As String
+        Get
+            Return CType(ParentComponent.ReadOnlyVariables("PackageName").GetValueWithContext(ScriptComponent.EvaluatorContext), String)
+        End Get
+    End Property
+
+    Public ReadOnly Property [TaskName]() As String
+        Get
+            Return CType(ParentComponent.ReadOnlyVariables("TaskName").GetValueWithContext(ScriptComponent.EvaluatorContext), String)
+        End Get
+    End Property
+
+End Class
+]]></arrayElement>
+                        <arrayElement
+                          dataType="System.String"><![CDATA[BufferWrapper.vb]]></arrayElement>
+                        <arrayElement
+                          dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                        <arrayElement
+                          dataType="System.String"><![CDATA[' THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT!
+' Microsoft SQL Server Integration Services buffer wrappers
+' This module defines classes for accessing data flow buffers
+' THIS IS AUTO-GENERATED CODE THAT WILL BE OVERWRITTEN! DO NOT EDIT!
+
+
+Option Strict Off   ' This allows usage of PipelineBuffer typed accessors.
+
+Imports System
+Imports System.Data
+Imports Microsoft.SqlServer.Dts.Pipeline
+Imports Microsoft.SqlServer.Dts.Pipeline.Wrapper
+
+<CLSCompliant(False)> _
+Public Class Input0Buffer
+    Inherits ScriptBuffer
+
+    Public Sub New(ByVal Buffer As PipelineBuffer, ByVal BufferColumnIndexes As Integer(), ByVal OutputMap As OutputNameMap)
+        MyBase.New(Buffer, BufferColumnIndexes, OutputMap)
+    End Sub
+
+    Public Overloads Function NextRow() As Boolean
+        NextRow = MyBase.NextRow()
+    End Function
+
+    Public Overloads Function EndOfRowset() As Boolean
+        EndOfRowset = MyBase.EndOfRowset
+    End Function
+
+End Class
+]]></arrayElement>
+                        <arrayElement
+                          dataType="System.String"><![CDATA[My Project\Settings.settings]]></arrayElement>
+                        <arrayElement
+                          dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                        <arrayElement
+                          dataType="System.String"><![CDATA[<?xml version='1.0' encoding='iso-8859-1'?>
+<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)" GeneratedClassNamespace="" GeneratedClassName="MySettings">
+  <Profiles>
+    <Profile Name="(Default)" />
+  </Profiles>
+  <Settings />
+</SettingsFile>]]></arrayElement>
+                        <arrayElement
+                          dataType="System.String"><![CDATA[main.vb]]></arrayElement>
+                        <arrayElement
+                          dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                        <arrayElement
+                          dataType="System.String"><![CDATA[Imports System
+Imports System.Data
+Imports System.Data.OleDb
+Imports System.Collections
+
+
+<Microsoft.SqlServer.Dts.Pipeline.SSISScriptComponentEntryPointAttribute()> _
+<CLSCompliant(False)> _
+Public Class ScriptMain
+    Inherits UserComponent
+
+    Private startTicks, totalTicks As Long
+    Private rowCount, totalRows As Integer
+    Private rps As New ArrayList() 'rps = rows per second
+
+    Public Overrides Sub Input0_ProcessInput(ByVal Buffer As Input0Buffer)
+        'Save the rate statistic for this buffer
+        If startTicks <> 0 Then
+            totalRows += rowCount
+            Dim ticks As Long = CLng(DateTime.Now.Ticks - startTicks)
+            If ticks > 0 Then
+                totalTicks += ticks
+                Dim rate As Integer = CInt(rowCount * (TimeSpan.TicksPerSecond / ticks))
+                rps.Add(rate)
+            End If
+        End If
+        'Reinitialize the counters
+        rowCount = 0
+        startTicks = DateTime.Now.Ticks
+        'Call the base method
+        MyBase.Input0_ProcessInput(Buffer)
+    End Sub
+
+    Public Overrides Sub Input0_ProcessInputRow(ByVal Row As Input0Buffer)
+        rowCount += 1 'No exposed Buffer.RowCount property so have to count manually
+    End Sub
+
+    Public Overrides Sub PostExecute()
+        MyBase.PostExecute()
+
+        'Define the Stored Procedure object
+        With New OleDbCommand("dbo.USP_LogPackageStatistics")
+            .CommandType = CommandType.StoredProcedure
+            'Define the common parameter
+            .Parameters.Add("@PackageLogID", OleDbType.Integer).Value = Variables.PackageLogID
+            .Parameters.Add("PackageName", OleDbType.VarChar, 50).Value = Variables.PackageName
+            .Parameters.Add("TaskName", OleDbType.VarChar, 50).Value = Variables.TaskName
+            .Parameters.Add("@componentName", OleDbType.VarChar, 50).Value = MyBase.ComponentMetaData.Name.ToString() 'Variables.TaskName
+            .Parameters.Add("@rows", OleDbType.Integer).Value = totalRows
+            .Parameters.Add("@timeMS", OleDbType.Integer).Value = CInt(totalTicks \ TimeSpan.TicksPerMillisecond)
+
+            'Only write the extended stats if RowCount > 0
+            If rps.Count > 0 Then
+                'Calculations depend on sorted array
+                rps.Sort()
+                'Remove boundary-case statistics
+                If rps.Count >= 3 Then rps.RemoveAt(0)
+                'Calculate min & max
+                Dim min As Integer = CInt(rps.Item(0))
+                Dim max As Integer = CInt(rps.Item(rps.Count - 1))
+                'Define the statistical parameters
+                .Parameters.Add("@minRowsPerSec", OleDbType.Integer).Value = min
+                .Parameters.Add("@maxRowsPerSec", OleDbType.Integer).Value = max
+            End If
+            'Define and open the database connection
+            .Connection = New OleDbConnection(Connections.SSISManagement.ConnectionString)
+            .Connection.Open()
+            Try
+                .ExecuteNonQuery() 'Execute the procedure
+            Finally 'Always finalize expensive objects
+                .Connection.Close()
+                .Connection.Dispose()
+            End Try
+        End With
+    End Sub
+End Class
+]]></arrayElement>
+                        <arrayElement
+                          dataType="System.String"><![CDATA[Project]]></arrayElement>
+                        <arrayElement
+                          dataType="System.String"><![CDATA[UTF16LE]]></arrayElement>
+                        <arrayElement
+                          dataType="System.String"><![CDATA[<?xml version="1.0" encoding="UTF-16" standalone="yes"?>
+<c:Project xmlns:c="http://schemas.microsoft.com/codeprojectml/2010/08/main" xmlns:msb="http://schemas.microsoft.com/developer/msbuild/2003" runtimeVersion="4.0" schemaVersion="1.0">
+	<msb:PropertyGroup>
+		<msb:CodeName>sc_58393d7de35e4a53a4c2d6a8a3afc8e1</msb:CodeName>
+		<msb:Language>msBuild</msb:Language>
+		<msb:DisplayName>sc_58393d7de35e4a53a4c2d6a8a3afc8e1</msb:DisplayName>
+		<msb:ProjectId>{79C97C44-83F5-4F90-B13F-CCAEF5FE883E}</msb:ProjectId>
+	</msb:PropertyGroup>
+	<msb:ItemGroup>
+		<msb:Project Include="sc_58393d7de35e4a53a4c2d6a8a3afc8e1.vbproj"/>
+		<msb:File Include="My Project\Settings.Designer.vb"/>
+		<msb:File Include="main.vb"/>
+		<msb:File Include="BufferWrapper.vb"/>
+		<msb:File Include="My Project\Resources.resx"/>
+		<msb:File Include="ComponentWrapper.vb"/>
+		<msb:File Include="My Project\AssemblyInfo.vb"/>
+		<msb:File Include="My Project\Resources.Designer.vb"/>
+		<msb:File Include="My Project\Settings.settings"/>
+	</msb:ItemGroup>
+</c:Project>]]></arrayElement>
+                        <arrayElement
+                          dataType="System.String"><![CDATA[My Project\Resources.Designer.vb]]></arrayElement>
+                        <arrayElement
+                          dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                        <arrayElement
+                          dataType="System.String"><![CDATA['------------------------------------------------------------------------------
+' <autogenerated>
+'     This code was generated by a tool.
+'
+'     Changes to this file may cause incorrect behavior and will be lost if
+'     the code is regenerated.
+' </autogenerated>
+'------------------------------------------------------------------------------
+
+Option Strict Off
+Option Explicit On
+
+
+Namespace My.Resources
+    
+    '''<summary>
+    '''   A strongly-typed resource class, for looking up localized strings, etc.
+    '''</summary>
+    'This class was auto-generated by the Strongly Typed Resource Builder
+    'class via a tool like ResGen or Visual Studio.NET.
+    'To add or remove a member, edit your .ResX file then rerun ResGen
+    'with the /str option, or rebuild your VS project.
+    Class MyResources
+        
+        Private Shared _resMgr As System.Resources.ResourceManager
+        
+        Private Shared _resCulture As System.Globalization.CultureInfo
+        
+        Friend Sub New()
+            MyBase.New
+        End Sub
+        
+        '''<summary>
+        '''   Returns the cached ResourceManager instance used by this class.
+        '''</summary>
+        <System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)>  _
+        Public Shared ReadOnly Property ResourceManager() As System.Resources.ResourceManager
+            Get
+                If (_resMgr Is Nothing) Then
+                    Dim temp As System.Resources.ResourceManager = New System.Resources.ResourceManager("My.Resources.MyResources", GetType(MyResources).Assembly)
+                    _resMgr = temp
+                End If
+                Return _resMgr
+            End Get
+        End Property
+        
+        '''<summary>
+        '''   Overrides the current thread's CurrentUICulture property for all
+        '''   resource lookups using this strongly typed resource class.
+        '''</summary>
+        <System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)>  _
+        Public Shared Property Culture() As System.Globalization.CultureInfo
+            Get
+                Return _resCulture
+            End Get
+            Set
+                _resCulture = value
+            End Set
+        End Property
+    End Class
+End Namespace
+]]></arrayElement>
+                        <arrayElement
+                          dataType="System.String"><![CDATA[My Project\Settings.Designer.vb]]></arrayElement>
+                        <arrayElement
+                          dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                        <arrayElement
+                          dataType="System.String"><![CDATA['------------------------------------------------------------------------------
+' <autogenerated>
+'     This code was generated by a tool.
+'
+'     Changes to this file may cause incorrect behavior and will be lost if
+'     the code is regenerated.
+' </autogenerated>
+'------------------------------------------------------------------------------
+
+Option Strict Off
+Option Explicit On
+
+
+
+Partial Friend NotInheritable Class MySettings
+    Inherits System.Configuration.ApplicationSettingsBase
+
+    Private Shared m_Value As MySettings
+
+    Private Shared m_SyncObject As Object = New Object
+
+    <System.Diagnostics.DebuggerNonUserCode()> _
+    Public Shared ReadOnly Property Value() As MySettings
+        Get
+            If (MySettings.m_Value Is Nothing) Then
+                System.Threading.Monitor.Enter(MySettings.m_SyncObject)
+                If (MySettings.m_Value Is Nothing) Then
+                    Try
+                        MySettings.m_Value = New MySettings
+                    Finally
+                        System.Threading.Monitor.Exit(MySettings.m_SyncObject)
+                    End Try
+                End If
+            End If
+            Return MySettings.m_Value
+        End Get
+    End Property
+End Class
+]]></arrayElement>
+                        <arrayElement
+                          dataType="System.String"><![CDATA[My Project\Resources.resx]]></arrayElement>
+                        <arrayElement
+                          dataType="System.String"><![CDATA[UTF8]]></arrayElement>
+                        <arrayElement
+                          dataType="System.String"><![CDATA[<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+</root>]]></arrayElement>
+                        <arrayElement
+                          dataType="System.String"><![CDATA[sc_58393d7de35e4a53a4c2d6a8a3afc8e1.vbproj]]></arrayElement>
+                        <arrayElement
+                          dataType="System.String"><![CDATA[UTF16LE]]></arrayElement>
+                        <arrayElement
+                          dataType="System.String"><![CDATA[<?xml version="1.0" encoding="utf-16"?><Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003"><!-- This section defines project-level properties.
+
+       Configuration - Specifies whether the default configuration is Release or Debug.
+       Platform - Specifies what CPU the output of this project can run on.
+       OutputType - Must be "Library" for VSTA.
+       NoStandardLibraries - Set to "false" for VSTA.
+       RootNamespace - In C#, this specifies the namespace given to new files.
+                       In Visual Basic, all objects are wrapped in this namespace at runtime.
+       AssemblyName - Name of the output assembly.
+  --><PropertyGroup><ProjectTypeGuids>{30D016F9-3734-4E33-A861-5E7D899E18F3};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids><Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration><Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform><OutputType>Library</OutputType><RootNamespace>SC_58393d7de35e4a53a4c2d6a8a3afc8e1.vbproj</RootNamespace><AssemblyName>SC_854140B891304FF59559B6354E89D7D3</AssemblyName><StartupObject></StartupObject><OptionExplicit>On</OptionExplicit><OptionCompare>Binary</OptionCompare><OptionStrict>Off</OptionStrict><OptionInfer>On</OptionInfer><ProjectGuid>{59CAE981-D3C1-4BE2-993C-2B209DA66BE0}</ProjectGuid><TargetFrameworkVersion>v4.0</TargetFrameworkVersion><TargetFrameworkProfile></TargetFrameworkProfile></PropertyGroup><!-- This section defines properties that are set when the "Debug" configuration is
+       selected.
+
+       DebugSymbols - If true, create symbols (.pdb). If false, do not create symbols.
+       Optimize - If true, optimize the build output. If false, do not optimize.
+       OutputPath - Output path of the project relative to the project file.
+       EnableUnmanagedDebugging - If true, starting the debugger will attach both managed and unmanaged debuggers.
+       DefineConstants - Constants defined for the preprocessor.
+       Warning Level - Warning level for the compiler.
+  --><PropertyGroup Condition=" '$(Configuration)' == 'Debug' "><DefineConstants></DefineConstants><DefineDebug>true</DefineDebug><DefineTrace>true</DefineTrace><DebugSymbols>true</DebugSymbols><Optimize>false</Optimize><OutputPath>bin\</OutputPath><RegisterForComInterop>false</RegisterForComInterop><RemoveIntegerChecks>false</RemoveIntegerChecks><NoWarn>42016,42017,42018,42019,42032,42353,42354,42355</NoWarn></PropertyGroup><!-- This section defines properties that are set when the "Release" configuration is
+       selected.
+
+       DebugSymbols - If true, create symbols (.pdb). If false, do not create symbols.
+       Optimize - If true, optimize the build output. If false, do not optimize.
+       OutputPath - Output path of the project relative to the project file.
+       EnableUnmanagedDebugging - If true, starting the debugger will attach both managed and unmanaged debuggers.
+       DefineConstants - Constants defined for the preprocessor.
+       Warning Level - Warning level for the compiler.
+  --><PropertyGroup Condition=" '$(Configuration)' == 'Release' "><DefineConstants></DefineConstants><DefineDebug>false</DefineDebug><DefineTrace>true</DefineTrace><DebugSymbols>false</DebugSymbols><Optimize>true</Optimize><OutputPath>bin\</OutputPath><RegisterForComInterop>false</RegisterForComInterop><RemoveIntegerChecks>false</RemoveIntegerChecks><NoWarn>42016,42017,42018,42019,42032,42353,42354,42355</NoWarn></PropertyGroup><!-- This section enables pre- and post-build steps. However,
+       it is recommended that MSBuild tasks be used instead of these properties.
+  --><PropertyGroup><PreBuildEvent></PreBuildEvent><PostBuildEvent></PostBuildEvent></PropertyGroup><!-- This sections specifies references for the project. --><ItemGroup><Reference Include="System" /><Reference Include="System.Data" /><Reference Include="System.Windows.Forms" /><Reference Include="System.Xml" /><Reference Include="Microsoft.SqlServer.TxScript, Version=13.0.0.0, Culture=Neutral, PublicKeyToken=89845dcd8080cc91"><Private>False</Private></Reference><Reference Include="Microsoft.SqlServer.PipelineHost, Version=13.0.0.0, Culture=Neutral, PublicKeyToken=89845dcd8080cc91"><Private>False</Private></Reference><Reference Include="Microsoft.SqlServer.DTSPipelineWrap, Version=13.0.0.0, Culture=Neutral, PublicKeyToken=89845dcd8080cc91"><Private>False</Private></Reference><Reference Include="Microsoft.SqlServer.DTSRuntimeWrap, Version=13.0.0.0, Culture=Neutral, PublicKeyToken=89845dcd8080cc91"><Private>False</Private></Reference></ItemGroup><!-- Visual Basic supports Importing namespaces (equivalent to using statements in C#).--><ItemGroup><Import Include="Microsoft.VisualBasic" /><Import Include="System" /><Import Include="System.Collections" /><Import Include="System.Data" /><Import Include="System.Diagnostics" /><Import Include="System.Windows.Forms" /></ItemGroup><!-- This section defines the user source files that are part of the
+       project.
+
+       Compile - Specifies a source file to compile.
+       EmbeddedResource - Specifies a .resx file for embedded resources.
+       None - Specifies a file that is not to be passed to the compiler (for instance,
+              a text file or XML file).
+       AppDesigner - Specifies the directory where the application properties files can
+                     be found.
+  --><ItemGroup><AppDesigner Include="My Project\" /><Compile Include="BufferWrapper.vb" /><Compile Include="ComponentWrapper.vb" /><Compile Include="main.vb" /><Compile Include="My Project\AssemblyInfo.vb"><SubType>Code</SubType></Compile><EmbeddedResource Include="My Project\Resources.resx"><Generator>VbMyResourcesResXFileCodeGenerator</Generator><LastGenOutput>Resources.Designer.vb</LastGenOutput><CustomToolNamespace>My.Resources</CustomToolNamespace></EmbeddedResource><Compile Include="My Project\Resources.Designer.vb"><AutoGen>True</AutoGen><DesignTime>True</DesignTime><DependentUpon>Resources.resx</DependentUpon><SubType>Code</SubType></Compile><None Include="My Project\Settings.settings"><Generator>SettingsSingleFileGenerator</Generator><LastGenOutput>Settings.Designer.vb</LastGenOutput></None><Compile Include="My Project\Settings.Designer.vb"><AutoGen>True</AutoGen><DependentUpon>Settings.settings</DependentUpon><SubType>Code</SubType></Compile><!-- Include the default configuration information and metadata files for the add-in.
+         These files are copied to the build output directory when the project is
+         built, and the path to the configuration file is passed to add-in on the command
+         line when debugging.
+    --></ItemGroup><!-- Include the build rules for a VB project.--><Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" /><!-- This section defines VSTA properties that describe the host-changable project properties. --><ProjectExtensions><VisualStudio><FlavorProperties GUID="{30D016F9-3734-4E33-A861-5E7D899E18F3}"><ProjectProperties HostName="VSTAHostName" HostPackage="{B3A685AA-7EAF-4BC6-9940-57959FA5AC07}" ApplicationType="usd" Language="vb" TemplatesPath="" /><Host Name="SSIS_ScriptComponent" /><ProjectClient><HostIdentifier>SSIS_SC130</HostIdentifier></ProjectClient></FlavorProperties></VisualStudio></ProjectExtensions></Project>]]></arrayElement>
+                      </arrayElements>
+                    </property>
+                    <property
+                      dataType="System.String"
+                      description="Stores the binary representation of the component"
+                      isArray="true"
+                      name="BinaryCode"
+                      state="cdata">
+                      <arrayElements
+                        arrayElementCount="2">
+                        <arrayElement
+                          dataType="System.String"><![CDATA[SC_854140B891304FF59559B6354E89D7D3.dll]]></arrayElement>
+                        <arrayElement
+                          dataType="System.String"><![CDATA[TVqQAAMAAAAEAAAA//8AALgAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAgAAAAA4fug4AtAnNIbgBTM0hVGhpcyBwcm9ncmFtIGNhbm5vdCBiZSBydW4gaW4gRE9TIG1v
+ZGUuDQ0KJAAAAAAAAABQRQAATAEDAByYnFgAAAAAAAAAAOAAIiALAVAAACgAAAAIAAAAAAAAukYA
+AAAgAAAAYAAAAAAAEAAgAAAAAgAABAAAAAAAAAAEAAAAAAAAAACgAAAAAgAAAAAAAAMAQIUAABAA
+ABAAAAAAEAAAEAAAAAAAABAAAAAAAAAAAAAAAGhGAABPAAAAAGAAAIwEAAAAAAAAAAAAAAAAAAAA
+AAAAAIAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAIAAACAAAAAAAAAAAAAAACCAAAEgAAAAAAAAAAAAAAC50ZXh0AAAAwCYAAAAgAAAAKAAAAAIA
+AAAAAAAAAAAAAAAAACAAAGAucnNyYwAAAIwEAAAAYAAAAAYAAAAqAAAAAAAAAAAAAAAAAABAAABA
+LnJlbG9jAAAMAAAAAIAAAAACAAAAMAAAAAAAAAAAAAAAAAAAQAAAQgAAAAAAAAAAAAAAAAAAAACc
+RgAAAAAAAEgAAAACAAUAfCYAADQfAAABAAAAAAAAALBFAAC4AAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAB4CKBgAAAoqHgIoGQAACiqmcxoAAAqAAQAABHMbAAAKgAIA
+AARzHAAACoADAAAEcx0AAAqABAAABCoufgEAAARvHgAACioufgIAAARvHwAACioufgMAAARvIAAA
+CioufgQAAARvIQAACioeAigiAAAKKq5+BQAABC0ecgEAAHDQBQAAAigjAAAKbyQAAApzJQAACoAF
+AAAEfgUAAAQqGn4GAAAEKh4CgAYAAAQqKgIDBAUoJgAACioTMAEACQAAAAEAABECKCcAAAoKBioA
+AAATMAEACQAAAAEAABECKCgAAAoKBip+AigpAAAKAgJzEwAABn0HAAAEAgJzFQAABn0IAAAEKpIE
+cjMAAHAabyoAAAosFQIFAgMoKwAACg4EcwwAAAZvEQAABipKKwcCA28SAAAGA28NAAAGLfEqBio6
+AigiAAAKAgN9CQAABCqCAnsJAAAEbywAAApvLQAACnJDAABwby4AAApvLwAACio6AigiAAAKAgN9
+CgAABCqWAnsKAAAEbzAAAApyYwAAcG8xAAAKKDIAAApvMwAACig0AAAKKpYCewoAAARvMAAACnKP
+AABwbzEAAAooMgAACm8zAAAKKDQAAAoqlgJ7CgAABG8wAAAKcqMAAHBvMQAACigyAAAKbzMAAAoo
+NQAACiqWAnsKAAAEbzAAAApyvQAAcG8xAAAKKDIAAApvMwAACig0AAAKKpYCewoAAARvMAAACnLV
+AABwbzEAAAooMgAACm8zAAAKKDQAAAoqSgIoDwAABgJzNgAACn0PAAAEKgATMAMAkgAAAAIAABEC
+ewsAAAQsaAJ8DgAABCULB0oCew0AAATWVCg3AAAKDBICKDgAAAoCewsAAATaCgYWajE8AnwMAAAE
+JRMEEQRMBtZVAnsNAAAEbCMAAAAA0BJjQQZsW1ooOQAACrcNAnsPAAAECYw4AAABbzoAAAomAhZ9
+DQAABAIoNwAACgwSAig4AAAKfQsAAAQCAygRAAAGKgAAEzADAA4AAAADAAARAnwNAAAEJQoGShfW
+VCoAABswBADpAQAABAAAEQIoOwAACnLnAABwczwAAAoKBhpvPQAACgZvPgAACnIhAQBwGW8/AAAK
+AnsIAAAEbxgAAAaMOAAAAW9AAAAKBm8+AAAKcr0AAHAgyAAAAB8yb0EAAAoCewgAAARvGQAABm9A
+AAAKBm8+AAAKctUAAHAgyAAAAB8yb0EAAAoCewgAAARvGgAABm9AAAAKBm8+AAAKcj0BAHAgyAAA
+AB8yb0EAAAoCKCwAAApvQgAACm9DAAAKb0AAAAoGbz4AAApyWwEAcBlvPwAACgJ7DgAABIw4AAAB
+b0AAAAoGbz4AAApyZwEAcBlvPwAACgJ7DAAABCAQJwAAalu3jDgAAAFvQAAACgJ7DwAABG9EAAAK
+Fj6NAAAAAnsPAAAEb0UAAAoCew8AAARvRAAAChkyDAJ7DwAABBZvRgAACgJ7DwAABBZvRwAACig1
+AAAKCwJ7DwAABAJ7DwAABG9EAAAKF9pvRwAACig1AAAKDAZvPgAACnJ3AQBwGW8/AAAKB4w4AAAB
+b0AAAAoGbz4AAApylQEAcBlvPwAACgiMOAAAAW9AAAAKBgJ7BwAABG8UAAAGb0gAAApzSQAACm9K
+AAAKBm9LAAAKb0wAAAoGb00AAAom3hcGb0sAAApvTgAACgZvSwAACm9PAAAK3BQKKgAAAAEQAAAC
+AMYBCc8BFwAAAABCcyIAAAooUAAACoARAAAEKh4CKFEAAAoqAAAAGzABAD8AAAAAAAAAfhAAAAQt
+Mn4RAAAEKFAAAAooUgAACn4QAAAELRxzIAAABoAQAAAE3hB+EQAABChQAAAKKFMAAArcfhAAAAQq
+AAEQAAACAB0ADCkAEAAAAAA2AgMoUAAACihUAAAKKh4CKFUAAAoqLtAMAAACKCMAAAoqHgIoVgAA
+CioAABMwAQAUAAAABQAAEQKMBQAAGy0IKAEAACsKKwICCgYqIgP+FQUAABsqAAAAEzACACgAAAAG
+AAARAntYAAAKb1kAAAoKBowIAAAbLRIoAgAAKwoCe1gAAAoGb1oAAAoGKkoCKCIAAAoCc1sAAAp9
+WAAACioAQlNKQgEAAQAAAAAADAAAAHY0LjAuMzAzMTkAAAAABQBsAAAAKAsAACN+AACUCwAAgA0A
+ACNTdHJpbmdzAAAAABQZAAC0AQAAI1VTAMgaAAAQAAAAI0dVSUQAAADYGgAAXAQAACNCbG9iAAAA
+AAAAAAIAAAFXFaIJCQ8AAAD6ATMAFgAAAQAAAEEAAAANAAAAEgAAACoAAAARAAAAWwAAAD0AAAAG
+AAAABgAAAA4AAAAPAAAACAAAAAEAAAAIAAAAAQAAAAIAAAADAAAAAgAAAAAAbwYBAAAAAAAGALcE
+UwoGAGEFUwoGAI4DlAkPAAcLAAAGAM8DHAcGAJoEHAcGAEgFHAcGANcEHAcGAPAEHAcGABYEHAcG
+AAsFoAYGALsDDQoGADcDDQoGAGIEHAcGADEExwUKAFoDzggKACIDWQYKAKIDWQYOAOwC4wkOAGQJ
+pwkGAEoElAkOAOYDLAoOAP4DrAEGAOkLoAYOADsJ4wkOAH8ErAEGAMMCoAYOAKgALwYKAEUDrAYG
+AJ4IcwoGAKYHBwcSAI0IhQIWAH4IhQISALIHhQISADwMhQIaAGYA5ggSACEFhQIGAIEMjwsGAHwC
+oAYeAMYBkQEKAPwC8gYGAHEDlAkGAA0CoAYGAGcNHAcGAPgFoAYGAJUHoAYiAAEADgkiACoADgki
+AE0ADgkaAH8A5ggaABoA5giPAN4MAAAaAJAA5ggOAIMLLAoGAP8FoAYGANIAoAYeALQCbwEeAE4H
+kQEeAEAJkQEeAKYCkQEeAIUHkQEKAEIMWQYGALILUwoGAIwJtgUGAHUJoAYAAAAA/AAAAAAAAQAB
+AAAAAADkBjUNTQABAAEAAAAAAGIJNQ1RAAEAAgAAARAA8As1DWEAAQADAAAAAAC8CoQKYQAFAAgA
+AQAAAHEIBAaBAAcADAABAAAAHgwEBo0ABwAPAAEAAACiCwQGYQAJABMAAQAAACILBAZhAAoAFQAB
+AAAAyQYEBhwACwAbAAABEABRCwQGpQAQAB8ABQEAANUJAABhABIAIgAFAQAAtwAAAGEAEgApADEA
+OgiYATEAEQigATEAJQioATEAUwiwAREAbQm4AREA4AK8AQYAogvAAQYAIgvEAQEALAzIAQEALAzI
+AQEAcQvNAQEAZgvNAQEAVgzQAQEA0AvQAQEArgvTAREAiwXYAREA4wvcASEAwAxgAVAgAAAAAAYY
+fwkGAAEAWCAAAAAABhh/CQYAAQBgIAAAAAARGIUJ3wEBAIogAAAAABMIVQnjAQEAliAAAAAAEwjU
+BugBAQCiIAAAAAATCDcJ7QEBAK4gAAAAABMIxQnyAQEAuiAAAAAAAxh/CQYAAQDCIAAAAAAWCJoI
+9wEBAO4gAAAAABYIyAL8AQEA9SAAAAAAFgjUAgECAQD9IAAAAAAGGH8JZQACAAghAAAAAIYALQ11
+AAUAICEAAAAAhgD6C3UABQA1IQAAAAAGGH8JBgAFAFUhAAAAAMYCswwHAgUAeiEAAAAARgOsDBMC
+CQCNIQAAAABGAxYNEwIKAI8hAAAAAAYYfwkZAgsAniEAAAAABggLDJoADAC/IQAAAAAGGH8JGQIM
+AM4hAAAAAAYIBQEYAQ0A9CEAAAAABggfARgBDQAaIgAAAAAGCC0BHAENAEAiAAAAAAYIOgIYAQ0A
+ZiIAAAAABghKAhgBDQCMIgAAAAAGGH8JBgANAKAiAAAAAMYCrAwTAg0AQCMAAAAAxgIWDRMCDgBc
+IwAAAADGAn8FBgAPAGQlAAAAABEYhQnfAQ8AdSUAAAAABhh/CQYADwCAJQAAAAAWCJMFIAIPANwl
+AAAAAMYCfAs8AQ8A6iUAAAAAxgIBAhwBEADyJQAAAACDAMACJQIQAP4lAAAAAMYC9gUYARAACCYA
+AAAAEQBcASoCEAAoJgAAAAABAEgBMgIRALogAAAAAAYYfwkGABIANCYAAAAAAwjoAUoAEgBoJgAA
+AAAGGH8JBgASAAAAAQCwBQAAAQCTCAAAAgAsCwAAAwDABwAAAQA+AQAAAgBXAgAAAwCTCAAABADA
+BwAAAQCTCAAAAQAxDQAAAQBCDAAAAQBCDAAAAQCTCAAAAQAxDQAAAQCwBwAAAQD4AQAAAQD4AQkA
+fwkBABEAfwkGABkAfwkKACkAfwkQADEAfwkQADkAfwkQAEEAfwkQAEkAfwkQAFEAfwkQAFkAfwkV
+AGEAfwkVAGkAfwkQAHEAfwkQAHkAfwkQAIEAfwkaAJEAfwkgAKkAfwkGALEAfwkGALkAfwkGANEA
+fwkmAOkAfwkQACkBfwkGAFEBfwkGAJkAfwkGAKEAfwkGAAwAfwkGABQAfwkGABwAfwkGACQAfwkG
+AAwA6AFKABQA6AFKABwA6AFKACQA6AFKAMEAfwkGANkAHwJPANkAYw1XAPEAfwldAAEBfwllAAEB
+LQ11AAEB+gt1ABkBfwkGAGkBfAt5ABkBQAuBABkBewGHAHkBLgeNAIEBYQKTAIkBrgiaABkBFgug
+AJEBlwamABkB+QytAJkBygyzALEB9gW6ALEBxAi/ADEBfwkGADkBDg3QADkBXAvWALkB0wHaADEB
+wgHfABkBfwUGAEEBfwkQAEEBsALxAEEBwQv4ANEBwgH+ANkBnQUIAdEBwgENAXkBMQIYAWkB9gUY
+ATEBTAwcATEBfAwGADEB2gsBADEBlwYgASEB4QUYAekBfwkQAEEBdgclAUEBZwcsAekBpwYGAEEB
+cA0cAekBFAMGAPEBGgMGAPkBpwUyAUkBfwkGAAECTwk3AQECBgw3AcEAfAs8AcEAAQIcAcEA9gUY
+AQkC2QFJATQAwAxgATwAkwVKADwAnQV3ATwAfwkGACkAqwAUBC4ACwBwAi4AEwB5Ai4AGwCYAi4A
+IwChAi4AKwDRAi4AMwDXAi4AOwChAi4AQwDmAi4ASwDRAi4AUwAGAy4AWwDRAi4AYwAMAy4AawA2
+Ay4AcwBDA0AAiwCLA0AAgwCQA0MAewCZA0MAgwCQA0kAqwAlBGMAewCZA2MAgwCQA2kAqwA5BIAA
+iwCLA4MAkwCLA4MAmwCLA4MAewCZA4kAqwBGBKAAiwCLA6kAgwCYAsAAiwCLA8MAUwDRAskAgwCY
+AuAAiwCLA+MAUwDRAgMBUwDRAiMBUwDRAkMBswCLA0MBUwDRAoMBgwCQA4MBowCyA6MBgwCQA6MB
+WwDRAqkBuwCLA2ACUwDRAqACUwDRAkAEgwCQA0AEiwCLA2AEgwCQA2AEiwCLA4AEgwCQA4AEiwCL
+A6AEgwCQA6AEiwCLA8AEiwCLA+AEiwCLAwAFiwCLAwAFgwCQAyAFiwCLA0AFiwCLA0AFgwCQA3EA
+xADkAOkAQQFUAQQAAQAFAAUACAAHAAkACAALAA0ADQAOAAAAZAk6AgAA5gY/AgAAOwlEAgAA1wlJ
+AgAAnghOAgAA5AJTAgAADwxYAgAACQFeAgAAIwFeAgAAMQFiAgAAPgJeAgAATgJeAgAAsAVmAgAA
+7AFrAgIABAADAAIABQAFAAIABgAHAAIABwAJAAIACQALAAIACgANAAEACwANAAIAFAAPAAIAFgAR
+AAIAFwATAAIAGAAVAAIAGQAXAAIAGgAZAAIAIQAbAAIAKQAdAC4ANQA8AEMARgFZAWgBbwEEgAAA
+AQAAAAAAAAAAAAAAAADYAAAABAAAAAAAAAAAAAAAfQGjAQAAAAAEAAAAAAAAAAAAAAB9AaAGAAAA
+AAoAAAAAAAAAAAAAAIYBrAEAAAAADQAAAAAAAAAAAAAAjwFfDAAAAAANAAAAAAAAAAAAAACPAYsM
+AAAAAA0AAAAAAAAAAAAAAI8BygcAAAAABAAAAAAAAAAAAAAAfQFvAQAAAAANAAAAAAAAAAAAAACP
+Ae0HAAAAAAAAAAABAAAAyAoAAAwABAANAAQAAAAQABoARgEAABAATQBGAQAAAABPAEYBrwBPAa8A
+cgEAAAAAAElEVFNDb21wb25lbnRNZXRhRGF0YTEwMABJRFRTVmFyaWFibGUxMDAASURUU1J1bnRp
+bWVDb25uZWN0aW9uQ29sbGVjdGlvbjEwMABJRFRTUnVudGltZUNvbm5lY3Rpb24xMDAASURUU0Nv
+bm5lY3Rpb25NYW5hZ2VyMTAwAElEVFNWYXJpYWJsZXMxMDAASURUU0V2YWx1YXRvckNvbnRleHQx
+MDAAQ29udGV4dFZhbHVlYDEAVGhyZWFkU2FmZU9iamVjdFByb3ZpZGVyYDEASW50MzIAU0NfODU0
+MTQwQjg5MTMwNEZGNTk1NTlCNjM1NEU4OUQ3RDMAPE1vZHVsZT4AZ2V0X0V4ZWN1dGlvbkluc3Rh
+bmNlR1VJRABnZXRfUGFja2FnZUlEAGdldF9QYWNrYWdlTG9nSUQASW5wdXRJRABUAERpc3Bvc2Vf
+X0luc3RhbmNlX18AQ3JlYXRlX19JbnN0YW5jZV9fAFN5c3RlbS5EYXRhAGdldF9Db21wb25lbnRN
+ZXRhRGF0YQBTeXN0ZW0uRGF0YS5PbGVEYgBtc2NvcmxpYgBNaWNyb3NvZnQuVmlzdWFsQmFzaWMA
+QWRkAE9sZURiQ29tbWFuZABSb3VuZABDcmVhdGVJbnN0YW5jZQBnZXRfR2V0SW5zdGFuY2UAaW5z
+dGFuY2UAR2V0SGFzaENvZGUAUnVudGltZVR5cGVIYW5kbGUAR2V0VHlwZUZyb21IYW5kbGUAZ2V0
+X05hbWUAZ2V0X1BhY2thZ2VOYW1lAGdldF9UYXNrTmFtZQBJbnB1dE5hbWUAR2V0UnVudGltZUNv
+bm5lY3Rpb25CeU5hbWUARGF0ZVRpbWUATWljcm9zb2Z0LlNxbFNlcnZlci5EdHMuUGlwZWxpbmUA
+T2xlRGJUeXBlAHNldF9Db21tYW5kVHlwZQBHZXRUeXBlAGdldF9DdWx0dXJlAHNldF9DdWx0dXJl
+AF9yZXNDdWx0dXJlAEFwcGxpY2F0aW9uQmFzZQBBcHBsaWNhdGlvblNldHRpbmdzQmFzZQBDbG9z
+ZQBEaXNwb3NlAEVkaXRvckJyb3dzYWJsZVN0YXRlAEd1aWRBdHRyaWJ1dGUASGVscEtleXdvcmRB
+dHRyaWJ1dGUAR2VuZXJhdGVkQ29kZUF0dHJpYnV0ZQBEZWJ1Z2dlck5vblVzZXJDb2RlQXR0cmli
+dXRlAERlYnVnZ2FibGVBdHRyaWJ1dGUARWRpdG9yQnJvd3NhYmxlQXR0cmlidXRlAENvbVZpc2li
+bGVBdHRyaWJ1dGUAQXNzZW1ibHlUaXRsZUF0dHJpYnV0ZQBTdGFuZGFyZE1vZHVsZUF0dHJpYnV0
+ZQBIaWRlTW9kdWxlTmFtZUF0dHJpYnV0ZQBBc3NlbWJseVRyYWRlbWFya0F0dHJpYnV0ZQBUYXJn
+ZXRGcmFtZXdvcmtBdHRyaWJ1dGUARGVidWdnZXJIaWRkZW5BdHRyaWJ1dGUAQXNzZW1ibHlGaWxl
+VmVyc2lvbkF0dHJpYnV0ZQBNeUdyb3VwQ29sbGVjdGlvbkF0dHJpYnV0ZQBBc3NlbWJseURlc2Ny
+aXB0aW9uQXR0cmlidXRlAENvbXBpbGF0aW9uUmVsYXhhdGlvbnNBdHRyaWJ1dGUAQXNzZW1ibHlQ
+cm9kdWN0QXR0cmlidXRlAEFzc2VtYmx5Q29weXJpZ2h0QXR0cmlidXRlAENMU0NvbXBsaWFudEF0
+dHJpYnV0ZQBTU0lTU2NyaXB0Q29tcG9uZW50RW50cnlQb2ludEF0dHJpYnV0ZQBBc3NlbWJseUNv
+bXBhbnlBdHRyaWJ1dGUAUnVudGltZUNvbXBhdGliaWxpdHlBdHRyaWJ1dGUAUG9zdEV4ZWN1dGUA
+bV9WYWx1ZQBnZXRfVmFsdWUAc2V0X1ZhbHVlAEdldE9iamVjdFZhbHVlAFN5c3RlbS5UaHJlYWRp
+bmcAU3lzdGVtLlJ1bnRpbWUuVmVyc2lvbmluZwBnZXRfQ29ubmVjdGlvblN0cmluZwBUb1N0cmlu
+ZwBNYXRoAFNDXzU4MzkzZDdkZTM1ZTRhNTNhNGMyZDZhOGEzYWZjOGUxLnZicHJvagBNaWNyb3Nv
+ZnQuVmlzdWFsQmFzaWMuTXlTZXJ2aWNlcy5JbnRlcm5hbABTeXN0ZW0uQ29tcG9uZW50TW9kZWwA
+U0NfODU0MTQwQjg5MTMwNEZGNTk1NTlCNjM1NEU4OUQ3RDMuZGxsAGdldF9JdGVtAFN5c3RlbQBP
+cGVuAFN5c3RlbS5Db21wb25lbnRNb2RlbC5EZXNpZ24AU2NyaXB0TWFpbgBnZXRfQXBwbGljYXRp
+b24ATXlBcHBsaWNhdGlvbgBTeXN0ZW0uQ29uZmlndXJhdGlvbgBTeXN0ZW0uR2xvYmFsaXphdGlv
+bgBTeXN0ZW0uUmVmbGVjdGlvbgBnZXRfUnVudGltZUNvbm5lY3Rpb25Db2xsZWN0aW9uAE9sZURi
+UGFyYW1ldGVyQ29sbGVjdGlvbgBnZXRfQ29ubmVjdGlvbgBzZXRfQ29ubmVjdGlvbgBPbGVEYkNv
+bm5lY3Rpb24AU3RyaW5nQ29tcGFyaXNvbgBDdWx0dXJlSW5mbwBPdXRwdXROYW1lTWFwAE91dHB1
+dE1hcABNaWNyb3NvZnQuU3FsU2VydmVyLkRUU1J1bnRpbWVXcmFwAE1pY3Jvc29mdC5TcWxTZXJ2
+ZXIuRFRTUGlwZWxpbmVXcmFwAG1fQXBwT2JqZWN0UHJvdmlkZXIAbV9Vc2VyT2JqZWN0UHJvdmlk
+ZXIAbV9Db21wdXRlck9iamVjdFByb3ZpZGVyAG1fTXlXZWJTZXJ2aWNlc09iamVjdFByb3ZpZGVy
+AElucHV0MEJ1ZmZlcgBQaXBlbGluZUJ1ZmZlcgBTY3JpcHRCdWZmZXIAZ2V0X1Jlc291cmNlTWFu
+YWdlcgBnZXRfQ29ubmVjdGlvbk1hbmFnZXIAVG9JbnRlZ2VyAFN5c3RlbS5Db2RlRG9tLkNvbXBp
+bGVyAE1pY3Jvc29mdC5TcWxTZXJ2ZXIuRHRzLlJ1bnRpbWUuV3JhcHBlcgBNaWNyb3NvZnQuU3Fs
+U2VydmVyLkR0cy5QaXBlbGluZS5XcmFwcGVyAGdldF9Vc2VyAE9sZURiUGFyYW1ldGVyAEVudGVy
+AGdldF9Db21wdXRlcgBNeUNvbXB1dGVyAF9yZXNNZ3IAQWN0aXZhdG9yAC5jdG9yAC5jY3RvcgBN
+b25pdG9yAFN5c3RlbS5EaWFnbm9zdGljcwBNaWNyb3NvZnQuVmlzdWFsQmFzaWMuRGV2aWNlcwBn
+ZXRfV2ViU2VydmljZXMATXlXZWJTZXJ2aWNlcwBNaWNyb3NvZnQuVmlzdWFsQmFzaWMuQXBwbGlj
+YXRpb25TZXJ2aWNlcwBTeXN0ZW0uUnVudGltZS5JbnRlcm9wU2VydmljZXMATWljcm9zb2Z0LlZp
+c3VhbEJhc2ljLkNvbXBpbGVyU2VydmljZXMAU3lzdGVtLlJ1bnRpbWUuQ29tcGlsZXJTZXJ2aWNl
+cwBTeXN0ZW0uUmVzb3VyY2VzAFNDXzU4MzkzZDdkZTM1ZTRhNTNhNGMyZDZhOGEzYWZjOGUxLnZi
+cHJvai5NeS5SZXNvdXJjZXMATXlSZXNvdXJjZXMAU0NfNTgzOTNkN2RlMzVlNGE1M2E0YzJkNmE4
+YTNhZmM4ZTEudmJwcm9qLlJlc291cmNlcy5yZXNvdXJjZXMARGVidWdnaW5nTW9kZXMAZ2V0X1Jl
+YWRPbmx5VmFyaWFibGVzAEJ1ZmZlckNvbHVtbkluZGV4ZXMAR2V0Q29sdW1uSW5kZXhlcwBNeVNl
+dHRpbmdzAGdldF9UaWNrcwB0b3RhbFRpY2tzAHN0YXJ0VGlja3MARXF1YWxzAENvbnZlcnNpb25z
+AFN5c3RlbS5Db2xsZWN0aW9ucwBDb25uZWN0aW9ucwBycHMAUnVudGltZUhlbHBlcnMAZ2V0X1Bh
+cmFtZXRlcnMAdG90YWxSb3dzAFJlbW92ZUF0AG1fU3luY09iamVjdABNeVByb2plY3QARW5kT2ZS
+b3dzZXQARXhpdABnZXRfU1NJU01hbmFnZW1lbnQAVXNlckNvbXBvbmVudABQYXJlbnRDb21wb25l
+bnQAU2NyaXB0Q29tcG9uZW50AGdldF9Db3VudAByb3dDb3VudABNaWNyb3NvZnQuU3FsU2VydmVy
+LlR4U2NyaXB0AFNvcnQAQXJyYXlMaXN0AE1pY3Jvc29mdC5TcWxTZXJ2ZXIuUGlwZWxpbmVIb3N0
+AElucHV0MF9Qcm9jZXNzSW5wdXQAbV9Db250ZXh0AEdldFZhbHVlV2l0aENvbnRleHQAU2NyaXB0
+Q29tcG9uZW50RXZhbENvbnRleHQAZ2V0X0V2YWx1YXRvckNvbnRleHQAZ2V0X05vdwBJbnB1dDBf
+UHJvY2Vzc0lucHV0Um93AE5leHRSb3cAU0NfNTgzOTNkN2RlMzVlNGE1M2E0YzJkNmE4YTNhZmM4
+ZTEudmJwcm9qLk15AGdldF9Bc3NlbWJseQBFeGVjdXRlTm9uUXVlcnkAADFNAHkALgBSAGUAcwBv
+AHUAcgBjAGUAcwAuAE0AeQBSAGUAcwBvAHUAcgBjAGUAcwAAD0kAbgBwAHUAdAAgADAAAB9TAFMA
+SQBTAF8ATQBhAG4AYQBnAGUAbQBlAG4AdAAAK0UAeABlAGMAdQB0AGkAbwBuAEkAbgBzAHQAYQBu
+AGMAZQBHAFUASQBEAAATUABhAGMAawBhAGcAZQBJAEQAABlQAGEAYwBrAGEAZwBlAEwAbwBnAEkA
+RAAAF1AAYQBjAGsAYQBnAGUATgBhAG0AZQAAEVQAYQBzAGsATgBhAG0AZQAAOWQAYgBvAC4AVQBT
+AFAAXwBMAG8AZwBQAGEAYwBrAGEAZwBlAFMAdABhAHQAaQBzAHQAaQBjAHMAABtAAFAAYQBjAGsA
+YQBnAGUATABvAGcASQBEAAAdQABjAG8AbQBwAG8AbgBlAG4AdABOAGEAbQBlAAALQAByAG8AdwBz
+AAAPQAB0AGkAbQBlAE0AUwAAHUAAbQBpAG4AUgBvAHcAcwBQAGUAcgBTAGUAYwAAHUAAbQBhAHgA
+UgBvAHcAcwBQAGUAcgBTAGUAYwAAAIY5tyf5X7JGoxpGs7N44k8ABCABAQgDIAABBSABARERBCAB
+AQ4EIAEBAgUgAgEODgUgAQERRQcgBAEODg4OBhUSNAESDAYVEjQBEggGFRI0ARJlBhUSNAESMAQg
+ABMABwABEm0RgK0FIAASgLEHIAIBDhKAsQsgAwESgIUdCBKAiQMHAQIDIAACByACAg4RgLkFIAEd
+CAgFIAASgL0FIAASgMEGIAESgMUOBSAAEoCRBSAAEoDJBiABEoDNHAUAABKA0QYgARwSgNUEAAEO
+HAQAAQgcCwcFChAIEYCdCBAKBQAAEYCdAyAACgQAAQ0NBCABCBwEBwEQCAcHAxKAoQgIBiABARGA
+5QUgABKA6QkgAhKA7Q4RgPEEIAEBHAogAxKA7Q4RgPEIAyAADgMgAAgEIAEcCAYgAQESgPUFIAAS
+gPUEAAEcHAQAAQEcBCABAhwEBwEeAAIeAAUQAQAeAAQKAR4ABAcBEwAGFRI0ARMABwYVEnEBEwAG
+FRJxARMAAhMABAoBEwAFIAEBEwAIt3pcVhk04IkIsD9ffxHVCjoIiYRdzYCAzJEHBhUSNAESDAcG
+FRI0ARIIBwYVEjQBEmUHBhUSNAESMAMGEnkDBhJ9AwYSIAMGEiQEBhKAjQIGCgIGCAQGEoCZAwYS
+LAIGHAMAAAEEAAASDAQAABIIBAAAEmUEAAASMAQAABJ5BAAAEn0FAAEBEn0LIAQBCA4SgIUSgIkF
+IAEBEhgGIAEBEoCNBAAAEiwEIAASbQcQAQEeAB4ABzABAQEQHgAECAASDAQIABIIBAgAEmUECAAS
+MAQIABJ5BAgAEn0FKAASgJEDKAAOAygACAQIABIsBCgAEwAIAQAIAAAAAAAeAQABAFQCFldyYXBO
+b25FeGNlcHRpb25UaHJvd3MBCAEAAgAAAAAALwEAKlNDXzU4MzkzZDdkZTM1ZTRhNTNhNGMyZDZh
+OGEzYWZjOGUxLnZicHJvagAABQEAAAAADgEACU1pY3Jvc29mdAAAHwEAGkNvcHlyaWdodCBAIE1p
+Y3Jvc29mdCAyMDE1AAAFAQABAAApAQAkODkxNGViYWYtYmRhZC00ZWRhLWJkNTItZmYwNGYwZDM3
+MDM5AAAMAQAHMS4wLjAuMAAARwEAGi5ORVRGcmFtZXdvcmssVmVyc2lvbj12NC4wAQBUDhRGcmFt
+ZXdvcmtEaXNwbGF5TmFtZRAuTkVUIEZyYW1ld29yayA0BAEAAAAIAQABAAAAAAAYAQAKTXlUZW1w
+bGF0ZQgxMS4wLjAuMAAAYQEANFN5c3RlbS5XZWIuU2VydmljZXMuUHJvdG9jb2xzLlNvYXBIdHRw
+Q2xpZW50UHJvdG9jb2wSQ3JlYXRlX19JbnN0YW5jZV9fE0Rpc3Bvc2VfX0luc3RhbmNlX18AAAAQ
+AQALTXkuQ29tcHV0ZXIAABMBAA5NeS5BcHBsaWNhdGlvbgAADAEAB015LlVzZXIAABMBAA5NeS5X
+ZWJTZXJ2aWNlcwAAAAC0AAAAzsrvvgEAAACRAAAAbFN5c3RlbS5SZXNvdXJjZXMuUmVzb3VyY2VS
+ZWFkZXIsIG1zY29ybGliLCBWZXJzaW9uPTQuMC4wLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVibGlj
+S2V5VG9rZW49Yjc3YTVjNTYxOTM0ZTA4OSNTeXN0ZW0uUmVzb3VyY2VzLlJ1bnRpbWVSZXNvdXJj
+ZVNldAIAAAAAAAAAAAAAAFBBRFBBRFC0AAAAkEYAAAAAAAAAAAAAqkYAAAAgAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAJxGAAAAAAAAAAAAAAAAX0NvckRsbE1haW4AbXNjb3JlZS5kbGwAAAAAAP8lACAA
+EAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABABAAAAAY
+AACAAAAAAAAAAAAAAAAAAAABAAEAAAAwAACAAAAAAAAAAAAAAAAAAAABAAAAAABIAAAAWGAAADAE
+AAAAAAAAAAAAADAENAAAAFYAUwBfAFYARQBSAFMASQBPAE4AXwBJAE4ARgBPAAAAAAC9BO/+AAAB
+AAAAAQAAAAAAAAABAAAAAAA/AAAAAAAAAAQAAAACAAAAAAAAAAAAAAAAAAAARAAAAAEAVgBhAHIA
+RgBpAGwAZQBJAG4AZgBvAAAAAAAkAAQAAABUAHIAYQBuAHMAbABhAHQAaQBvAG4AAAAAAAAAsASQ
+AwAAAQBTAHQAcgBpAG4AZwBGAGkAbABlAEkAbgBmAG8AAABsAwAAAQAwADAAMAAwADAANABiADAA
+AAAaAAEAAQBDAG8AbQBtAGUAbgB0AHMAAAAAAAAANAAKAAEAQwBvAG0AcABhAG4AeQBOAGEAbQBl
+AAAAAABNAGkAYwByAG8AcwBvAGYAdAAAAH4AKwABAEYAaQBsAGUARABlAHMAYwByAGkAcAB0AGkA
+bwBuAAAAAABTAEMAXwA1ADgAMwA5ADMAZAA3AGQAZQAzADUAZQA0AGEANQAzAGEANABjADIAZAA2
+AGEAOABhADMAYQBmAGMAOABlADEALgB2AGIAcAByAG8AagAAAAAAMAAIAAEARgBpAGwAZQBWAGUA
+cgBzAGkAbwBuAAAAAAAxAC4AMAAuADAALgAwAAAAcAAoAAEASQBuAHQAZQByAG4AYQBsAE4AYQBt
+AGUAAABTAEMAXwA4ADUANAAxADQAMABCADgAOQAxADMAMAA0AEYARgA1ADkANQA1ADkAQgA2ADMA
+NQA0AEUAOAA5AEQANwBEADMALgBkAGwAbAAAAFoAGwABAEwAZQBnAGEAbABDAG8AcAB5AHIAaQBn
+AGgAdAAAAEMAbwBwAHkAcgBpAGcAaAB0ACAAQAAgAE0AaQBjAHIAbwBzAG8AZgB0ACAAMgAwADEA
+NQAAAAAAKgABAAEATABlAGcAYQBsAFQAcgBhAGQAZQBtAGEAcgBrAHMAAAAAAAAAAAB4ACgAAQBP
+AHIAaQBnAGkAbgBhAGwARgBpAGwAZQBuAGEAbQBlAAAAUwBDAF8AOAA1ADQAMQA0ADAAQgA4ADkA
+MQAzADAANABGAEYANQA5ADUANQA5AEIANgAzADUANABFADgAOQBEADcARAAzAC4AZABsAGwAAAB2
+ACsAAQBQAHIAbwBkAHUAYwB0AE4AYQBtAGUAAAAAAFMAQwBfADUAOAAzADkAMwBkADcAZABlADMA
+NQBlADQAYQA1ADMAYQA0AGMAMgBkADYAYQA4AGEAMwBhAGYAYwA4AGUAMQAuAHYAYgBwAHIAbwBq
+AAAAAAA0AAgAAQBQAHIAbwBkAHUAYwB0AFYAZQByAHMAaQBvAG4AAAAxAC4AMAAuADAALgAwAAAA
+OAAIAAEAQQBzAHMAZQBtAGIAbAB5ACAAVgBlAHIAcwBpAG8AbgAAADEALgAwAC4AMAAuADAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAwAAAC8NgAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=]]></arrayElement>
+                      </arrayElements>
+                    </property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the Microsoft Visual Studio Tools for Applications project. Project names must be unique within a package."
+                      name="VSTAProjectName"
+                      typeConverter="NOTBROWSABLE">SC_854140b891304ff59559b6354e89d7d3</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the programming language used by the script."
+                      name="ScriptLanguage"
+                      typeConverter="Microsoft.SqlServer.VSTAHosting.ScriptingLanguages">VisualBasic</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies a comma-separated list of read-only variables."
+                      name="ReadOnlyVariables"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ScriptUIVariablePickerDlg">System::TaskName,System::ExecutionInstanceGUID,System::PackageID,User::PackageLogID,System::PackageName</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies a comma-separated list of read/write variables."
+                      name="ReadWriteVariables"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ScriptUIWriteableVariablePickerDlg"></property>
+                    <property
+                      dataType="System.String"
+                      description="List of breakpoints present on the script."
+                      isArray="true"
+                      name="BreakpointCollection"
+                      typeConverter="NOTBROWSABLE">
+                      <arrayElements
+                        arrayElementCount="0" />
+                    </property>
+                    <property
+                      dataType="System.String"
+                      name="UserComponentTypeName">Microsoft.ScriptComponentHost</property>
+                    <property
+                      dataType="System.String"
+                      description="Checksum to match component metedata against compiled codes."
+                      name="MetadataShaChecksum"
+                      typeConverter="NOTBROWSABLE">aa74e1772db06c4e1241d72d9145c6421a16cc41</property>
+                    <property
+                      dataType="System.String"
+                      description="Checksum to match component metedata against compiled codes."
+                      name="MetadataChecksum"
+                      typeConverter="NOTBROWSABLE">48efe7d22ce793b83cc6fe856096ea56</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Populate Tables\Data Flow Task\Inserted-Updated Records &lt;TableName&gt;.Connections[SSIS_Management]"
+                      connectionManagerID="Package.ConnectionManagers[SSIS_Management]"
+                      connectionManagerRefId="Package.ConnectionManagers[SSIS_Management]"
+                      name="SSIS_Management" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Populate Tables\Data Flow Task\Inserted-Updated Records &lt;TableName&gt;.Inputs[Input 0]"
+                      hasSideEffects="true"
+                      name="Input 0">
+                      <externalMetadataColumns />
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Populate Tables\Data Flow Task\Inserted-Updated Records &lt;TableName&gt;.Outputs[Output 0]"
+                      name="Output 0"
+                      synchronousInputId="Package\Populate Tables\Data Flow Task\Inserted-Updated Records &lt;TableName&gt;.Inputs[Input 0]">
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+              </components>
+            </pipeline>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
     </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\Retrieve Connection String"
@@ -220,7 +1146,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Retrieve Connection String"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="2">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -242,7 +1168,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Retrieve InProgress_Ts"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -264,7 +1190,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Retrieve LastCompletedRunStart_Ts"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="2">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -286,7 +1212,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="SQL_LogPackageEnd"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2016; © 2015 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="1">
+      DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -469,6 +1395,14 @@
       DTS:ObjectName="Constraint 13"
       DTS:To="Package\Populate Tables" />
     <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{73769649-4901-4BC0-857C-C91843ADC7A9}"
+      DTS:From="Package\Retrieve LastCompletedRunStart_Ts"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Populate Tables" />
+    <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
       DTS:CreationName=""
       DTS:DTSID="{75E77CF1-E338-4896-B18D-21C642F04E6C}"
@@ -484,14 +1418,6 @@
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 6"
       DTS:To="Package\Retrieve Connection String" />
-    <DTS:PrecedenceConstraint
-      DTS:refId="Package.PrecedenceConstraints[Constraint 7]"
-      DTS:CreationName=""
-      DTS:DTSID="{2C60E63A-01AF-4EAA-A627-31DD498ED501}"
-      DTS:From="Package\Retrieve LastCompletedRunStart_Ts"
-      DTS:LogicalAnd="True"
-      DTS:ObjectName="Constraint 7"
-      DTS:To="Package\Retrieve InProgress_Ts" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 9]"
       DTS:CreationName=""
@@ -1509,59 +2435,63 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
     <LayoutInfo>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="153,42"
+          Id="Package\Populate Tables\Data Flow Task"
+          TopLeft="5.5,5.5" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="684,203"
-          Size="684,246"
+          PanelSize="164,102"
+          Size="164,146"
           Id="Package\Populate Tables"
-          TopLeft="178.011904761901,273.126984126985" />
+          TopLeft="338.011904761901,300.126984126985" />
         <NodeLayout
           Size="250,42"
           Id="Package\Retrieve LastCompletedRunStart_Ts"
-          TopLeft="587.79365079364,99.0595238095246" />
+          TopLeft="541.79365079364,175.059523809525" />
         <NodeLayout
           Size="190,42"
           Id="Package\Retrieve InProgress_Ts"
-          TopLeft="434.01587301588,177.904761904763" />
+          TopLeft="314.01587301588,176.904761904763" />
         <NodeLayout
           Size="206,42"
           Id="Package\Retrieve Connection String"
-          TopLeft="165.60317460318,165.47619047619" />
+          TopLeft="66.60317460318,180.47619047619" />
         <NodeLayout
           Size="179,42"
           Id="Package\SQL_LogPackageEnd"
-          TopLeft="445.66666666667,574.476190476191" />
+          TopLeft="317.66666666667,494.476190476191" />
         <NodeLayout
           Size="184,42"
           Id="Package\SQL_LogPackageStart"
-          TopLeft="152.317460317467,60.6309523809527" />
+          TopLeft="321.317460317467,59.6309523809527" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="336.317460317467,81.6309523809527">
+          TopLeft="457.317460317467,101.630952380953">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="251.476190476173,38.4285714285719"
+              EndConnector="209.476190476173,73.4285714285719"
               Start="0,0"
-              End="243.976190476173,38.4285714285719">
+              End="209.476190476173,65.9285714285719">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="121.738095238086,0" />
+                    End="0,21.1755102040818" />
                   <mssgle:CubicBezierSegment
-                    Point1="121.738095238086,0"
-                    Point2="125.738095238086,0"
-                    Point3="125.738095238086,4" />
+                    Point1="0,21.1755102040818"
+                    Point2="0,25.1755102040818"
+                    Point3="4,25.1755102040818" />
                   <mssgle:LineSegment
-                    End="125.738095238086,34.4285714285719" />
+                    End="205.476190476173,25.1755102040818" />
                   <mssgle:CubicBezierSegment
-                    Point1="125.738095238086,34.4285714285719"
-                    Point2="125.738095238086,38.4285714285719"
-                    Point3="129.738095238086,38.4285714285719" />
+                    Point1="205.476190476173,25.1755102040818"
+                    Point2="209.476190476173,25.1755102040818"
+                    Point3="209.476190476173,29.1755102040818" />
                   <mssgle:LineSegment
-                    End="243.976190476173,38.4285714285719" />
+                    End="209.476190476173,65.9285714285719" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1572,30 +2502,30 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 13]"
-          TopLeft="529.01587301588,219.904761904763">
+          TopLeft="409.01587301588,218.904761904763">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="103.662698412688,53.222222222222"
+              EndConnector="36.9960317460209,81.222222222222"
               Start="0,0"
-              End="103.662698412688,45.722222222222">
+              End="36.9960317460209,73.722222222222">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,27.8588098016335" />
+                    End="0,44.2624798711754" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,27.8588098016335"
-                    Point2="0,31.8588098016335"
-                    Point3="4,31.8588098016335" />
+                    Point1="0,44.2624798711754"
+                    Point2="0,48.2624798711754"
+                    Point3="4,48.2624798711754" />
                   <mssgle:LineSegment
-                    End="99.6626984126875,31.8588098016335" />
+                    End="32.9960317460209,48.2624798711754" />
                   <mssgle:CubicBezierSegment
-                    Point1="99.6626984126875,31.8588098016335"
-                    Point2="103.662698412688,31.8588098016335"
-                    Point3="103.662698412688,35.8588098016335" />
+                    Point1="32.9960317460209,48.2624798711754"
+                    Point2="36.9960317460209,48.2624798711754"
+                    Point3="36.9960317460209,52.2624798711754" />
                   <mssgle:LineSegment
-                    End="103.662698412688,45.722222222222" />
+                    End="36.9960317460209,73.722222222222" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1606,30 +2536,30 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 5]"
-          TopLeft="520.011904761901,519.126984126985">
+          TopLeft="420.011904761901,446.126984126985">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="15.154761904769,55.349206349206"
+              EndConnector="-12.845238095231,48.349206349206"
               Start="0,0"
-              End="15.154761904769,47.849206349206">
+              End="-12.845238095231,40.849206349206">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,23.674603174603" />
+                    End="0,20.174603174603" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,23.674603174603"
-                    Point2="0,27.674603174603"
-                    Point3="4,27.674603174603" />
+                    Point1="0,20.174603174603"
+                    Point2="0,24.174603174603"
+                    Point3="-4,24.174603174603" />
                   <mssgle:LineSegment
-                    End="11.154761904769,27.674603174603" />
+                    End="-8.84523809523103,24.174603174603" />
                   <mssgle:CubicBezierSegment
-                    Point1="11.154761904769,27.674603174603"
-                    Point2="15.154761904769,27.674603174603"
-                    Point3="15.154761904769,31.674603174603" />
+                    Point1="-8.84523809523103,24.174603174603"
+                    Point2="-12.845238095231,24.174603174603"
+                    Point3="-12.845238095231,28.174603174603" />
                   <mssgle:LineSegment
-                    End="15.154761904769,47.849206349206" />
+                    End="-12.845238095231,40.849206349206" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1640,64 +2570,30 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 6]"
-          TopLeft="244.317460317467,102.630952380953">
+          TopLeft="369.317460317467,101.630952380953">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="24.285714285713,62.8452380952373"
+              EndConnector="-199.714285714287,78.8452380952373"
               Start="0,0"
-              End="24.285714285713,55.3452380952373">
+              End="-199.714285714287,71.3452380952373">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,27.4226190476187" />
+                    End="0,23.0326530612242" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,27.4226190476187"
-                    Point2="0,31.4226190476187"
-                    Point3="4,31.4226190476187" />
+                    Point1="0,23.0326530612242"
+                    Point2="0,27.0326530612242"
+                    Point3="-4,27.0326530612242" />
                   <mssgle:LineSegment
-                    End="20.285714285713,31.4226190476187" />
+                    End="-195.714285714287,27.0326530612242" />
                   <mssgle:CubicBezierSegment
-                    Point1="20.285714285713,31.4226190476187"
-                    Point2="24.285714285713,31.4226190476187"
-                    Point3="24.285714285713,35.4226190476187" />
+                    Point1="-195.714285714287,27.0326530612242"
+                    Point2="-199.714285714287,27.0326530612242"
+                    Point3="-199.714285714287,31.0326530612242" />
                   <mssgle:LineSegment
-                    End="24.285714285713,55.3452380952373" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 7]"
-          TopLeft="712.79365079364,141.059523809525">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-153.444444444426,36.8452380952384"
-              Start="0,0"
-              End="-153.444444444426,29.3452380952384">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,17.9225320608412" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,17.9225320608412"
-                    Point2="0,21.9225320608412"
-                    Point3="-4,21.9225320608412" />
-                  <mssgle:LineSegment
-                    End="-149.444444444426,21.9225320608412" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-149.444444444426,21.9225320608412"
-                    Point2="-153.444444444426,21.9225320608412"
-                    Point3="-153.444444444426,25.9225320608412" />
-                  <mssgle:LineSegment
-                    End="-153.444444444426,29.3452380952384" />
+                    End="-199.714285714287,71.3452380952373" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1708,30 +2604,30 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 9]"
-          TopLeft="268.60317460318,207.47619047619">
+          TopLeft="169.60317460318,222.47619047619">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="138.742063492054,65.650793650795"
+              EndConnector="224.408730158721,77.650793650795"
               Start="0,0"
-              End="138.742063492054,58.150793650795">
+              End="224.408730158721,70.150793650795">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,35.2985497582939" />
+                    End="0,42.1403266620666" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,35.2985497582939"
-                    Point2="0,39.2985497582939"
-                    Point3="4,39.2985497582939" />
+                    Point1="0,42.1403266620666"
+                    Point2="0,46.1403266620666"
+                    Point3="4,46.1403266620666" />
                   <mssgle:LineSegment
-                    End="134.742063492054,39.2985497582939" />
+                    End="220.408730158721,46.1403266620666" />
                   <mssgle:CubicBezierSegment
-                    Point1="134.742063492054,39.2985497582939"
-                    Point2="138.742063492054,39.2985497582939"
-                    Point3="138.742063492054,43.2985497582939" />
+                    Point1="220.408730158721,46.1403266620666"
+                    Point2="224.408730158721,46.1403266620666"
+                    Point3="224.408730158721,50.1403266620666" />
                   <mssgle:LineSegment
-                    End="138.742063492054,58.150793650795" />
+                    End="224.408730158721,70.150793650795" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1742,30 +2638,52 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="273.6507936508,102.630952380953">
+          TopLeft="411.166666666674,101.630952380953">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="225.031746031746,75.2738095238103"
+              EndConnector="0,75.2738095238103"
               Start="0,0"
-              End="225.031746031746,67.7738095238103">
+              End="0,67.7738095238103">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,33.6495529879929" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,33.6495529879929"
-                    Point2="0,37.6495529879929"
-                    Point3="4,37.6495529879929" />
+                    End="0,67.7738095238103" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="666.79365079364,217.059523809525">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-207.781746031739,83.0674603174604"
+              Start="0,0"
+              End="-207.781746031739,75.5674603174604">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
                   <mssgle:LineSegment
-                    End="221.031746031746,37.6495529879929" />
+                    End="0,50.492253968254" />
                   <mssgle:CubicBezierSegment
-                    Point1="221.031746031746,37.6495529879929"
-                    Point2="225.031746031746,37.6495529879929"
-                    Point3="225.031746031746,41.6495529879929" />
+                    Point1="0,50.492253968254"
+                    Point2="0,54.492253968254"
+                    Point3="-4,54.492253968254" />
                   <mssgle:LineSegment
-                    End="225.031746031746,67.7738095238103" />
+                    End="-203.781746031739,54.492253968254" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-203.781746031739,54.492253968254"
+                    Point2="-207.781746031739,54.492253968254"
+                    Point3="-207.781746031739,58.492253968254" />
+                  <mssgle:LineSegment
+                    End="-207.781746031739,75.5674603174604" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1877,5 +2795,24 @@ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA</BinaryItem>
       </GraphLayout>
     </LayoutInfo>
   </DtsEventHandler>
+  <TaskHost
+    design-time-name="Package\Populate Tables\Data Flow Task">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="276,42"
+          Id="Package\Populate Tables\Data Flow Task\Inserted-Updated Records &lt;TableName&gt;"
+          TopLeft="192,232" />
+        <AnnotationLayout
+          Text="Put this step right before rows are inserted/updated&#xD;&#xA;in the destination. It will write statistics into the management&#xD;&#xA;database. Make sure the name of the component is applicable&#xD;&#xA;as it's stored in the database."
+          ParentId="Package\Populate Tables\Data Flow Task"
+          FontInfo="{assembly:Null}"
+          Size="360,90"
+          Id="a4d37097-6de7-4cbb-9fb3-cc97b4619714"
+          TopLeft="469,220" />
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>
